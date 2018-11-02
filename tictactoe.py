@@ -33,7 +33,7 @@ board = setupboard()
 
 # Checks for wins, defines row as the length of the board array. Subfunction check_win_row should look for wins in each row.
 def checkwin(player):
-	for x in len(board):
+	for x in  range(len(board)):
 		check_win_row(x, board, player)
 		check_win_col(x, board, player)
 	check_win_diag_a(board, player)
@@ -41,7 +41,7 @@ def checkwin(player):
 # Checks rows for wins
 def check_win_row(rownum, daboard, player):
 	winrow = True
-	for col in len(board): 
+	for col in range(len(board)): 
 		if board[rownum][col] != player:
 			winrow = False
 	return winrow
@@ -49,7 +49,7 @@ def check_win_row(rownum, daboard, player):
 # Check column for wins
 def check_win_col(colnum, daboard, player):
 	wincol = True
-	for row in len(board[0]): 
+	for row in range(len(board[0])): 
 		if board[row][colnum] != player:
 			wincol = False
 	return wincol
@@ -57,7 +57,7 @@ def check_win_col(colnum, daboard, player):
 # Check top-to-bottom diagonal for wins.
 def check_win_diag_a(daboard, player):
 	windiag_a = True
-	for diag_a in len(board):
+	for diag_a in range(len(board)):
 		if board[diag_a][diag_a] != player:
 			windiag_a = False
 	return windiag_a
@@ -65,7 +65,7 @@ def check_win_diag_a(daboard, player):
 # Check bottom-to-top diagonal for wins.
 def check_win_diag_b(daboard, player):
 	windiag_b = True
-	for diag_b in len(board):
+	for diag_b in range(len(board)):
 			if board[len(board)-diag_b][diag_b] != player:
 				windiag_b = False
 	return windiag_b
