@@ -13,14 +13,17 @@ def setupboard():
 		for j in range(x):
 			board[i].append(num)
 			num += 1
-   #board = [[1,2,3],
-   #         [4,5,6],
-   #         [7,8,9]]
+	#board = [[1,2,3],
+	#         [4,5,6],
+	#         [7,8,9]]
 	if x == 3:
-	   for i in board:
-	       for j in i:
-	         print(j, end = "  ")
-	       print()
+		for i in board:
+			for j in i:
+				print(j, end = "  ")
+			print()
+	else:
+		for i in board:
+			print()
 	return board
 
 board = setupboard()
@@ -73,14 +76,13 @@ while(not gameover):
 		play = int(input("Please pick a number on the board: "))
 		if play > len(board)*len(board):
 			print ("Your chosen number is invalid, please select another")
-            #better try again... Return to the start of the loop
+			#better try again... Return to the start of the loop
 			continue
 		if play <= 0:
 			print ("Your chosen number is invalid, please select another")
 			#better try again... Return to the start of the loop
 			continue
 		board[int(play/len(board))][play%len(board)-1] = player
-		continue
 	except ValueError:
 		print ("Your chosen number is invalid, please select another")
 		#better try again... Return to the start of the loop
@@ -98,11 +100,11 @@ while(not gameover):
 	elif windiag_b == True:
 		gameover = True
 		print ("%s has won the game!" % player)
-		if player == "X":
-			player = "Y"
-			print ("It is now %s's turn." % player)
-			continue
-		else:
-			player == "X"
-			print ("It is now %s's turn." % player)
-			continue
+	if player == "X":
+		player = "Y"
+		print ("It is now %s's turn." % player)
+		continue
+	else:
+		player == "X"
+		print ("It is now %s's turn." % player)
+		continue
